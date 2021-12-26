@@ -1,21 +1,27 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-	
-	<bean class="com.kh.spring.tv.XiaomiRemocon" id="xiaomiRemocon" />
-	<bean class="com.kh.spring.tv.BalmudaRemocon" id="balmudaRemocon" />
-	
-	<!-- scope설정을 통해 context에서 관리할 bean개수를 설정 - singleton 하나만 생성 - prototype 
-		getBean마다 생성 - request request마다 생성 - session session마다 생성 lazy-init="default" 
+
+	<bean class="com.kh.spring.tv.XiaomiRemocon" id="xiaomiRemocon"></bean>
+	<bean class="com.kh.spring.tv.BalmudaRemocon" id="balmudaRemocon"></bean>
+	<!-- bean 만들기 id는 bean의 이름 scope의 기본 값은 singleton -->
+	<!-- scope설정을 통해 context에서 관리할 bean개수를 설정 - singleton : 하나만 생성 - prototype 
+		: getBean마다 생성 - request : request마다 생성 - session : session마다 생성 lazy-init="default" 
 		프로그램 시작시 객체 생성후 관리 lazy-init="true" 호출시 객체 생성 -->
-	
-	<bean class="com.kh.spring.tv.LgTv" id="lgTv" scope="prototype">
-		<!-- <constructor-arg ref="xiaomiRemocon"></constructor-arg> -->
-		<property name="remocon" ref="xiaomiRemocon" />
+	<bean class="com.kh.spring.tv.LgTv" id="lgTv" scope="singleton">
+		<!-- ref는 baen의 id로 ref를 인자로 해당 bean을 생성 -->
+		<!-- <constructor-arg ref="xiaomiRemocon"></constructor-arg>  -->
+		
+		<!-- setter 사용시에는 property 태그를 사용한 의존 주입 -->
+		<property name="remocon" ref="xiaomiRemocon"></property>
 	</bean>
-	
-	<bean class="com.kh.spring.tv.SamsungTv" id="samsungTv" scope="singleton" lazy-init="true">
-		<property name="remocon" ref="balmudaRemocon" />
+	<bean class="com.kh.spring.tv.SamsungTv" id="samsungTv"
+		scope="singleton" lazy-init="true">
+		<property name="remocon" ref="balmudaRemocon"></property>
 	</bean>
-	
+
+
+	<!-- <constructor-arg ref="xiaomiRemocon"></constructor-arg> -->
+
+
 </beans>
