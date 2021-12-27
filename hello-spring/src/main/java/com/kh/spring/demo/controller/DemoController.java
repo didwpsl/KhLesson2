@@ -1,6 +1,8 @@
 package com.kh.spring.demo.controller;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -144,6 +146,23 @@ public class DemoController {
 		int result = demoService.insertDev(dev);
 		String msg = result > 0 ? "Dev 등록 성공" : "Dev 등록 실패";
 		log.info("msg = {}", msg);
-		return "redirect:/demo/devForm.do";
+		
+		return "redirect:/demo/devList.do";
 	}
+	/*
+	 * select * from dev order by no desc
+	 * -> vo 
+	 * -> map 
+	 */
+	@RequestMapping("/demo/devList.do")
+	public String devList(Model model) {
+		List<Dev> list = demoService.selectDevList();
+		log.info("list = {}", list);
+		
+		model.addAttribute("list", list);
+		
+		log.info("12345678");
+		return "demo/devList";
+	}
+	
 }

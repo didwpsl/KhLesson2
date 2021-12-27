@@ -7,23 +7,25 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
-	<context:property-placeholder location="classpath:/datasource.properties" />
+	<context:property-placeholder location="classpath:/datasource.properties"/>
 	
-	<!-- #6.1. datasource 빈 & mybatis 빈 등록 -->
+	<!-- #6.1. datasource빈 & mybatis빈 등록 -->
 	<bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource" destroy-method="close">
 		<property name="driverClassName" value="${datasource.driverClassName}"/>
 		<property name="url" value="${datasource.url}"/>
 		<property name="username" value="${datasource.username}"/>
 		<property name="password" value="${datasource.password}"/>
 	</bean>
-	
 	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
 		<property name="configLocation" value="classpath:mybatis-config.xml"/>
 		<property name="mapperLocations" value="classpath*:mapper/**/*-mapper.xml"/>
 	</bean>
-	<!-- SqlSession 인터페이스의 구현 클래스 빈 -->
+	<!-- SqlSession인터페이스의 구현클래스 빈 -->
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactoryBean"/>
 	</bean>
+	
+	
+	
 </beans>
