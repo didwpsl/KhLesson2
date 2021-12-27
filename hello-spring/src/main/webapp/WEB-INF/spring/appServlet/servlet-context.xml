@@ -13,7 +13,7 @@
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 
-	<!-- 정적파일에 대한 매핑처리 -->
+	<!-- 정적파일에 대한 매핑처리 (/resources로 요청이 들어온다면 mvc흐름을 따르는게 아닌 아닌 location에서 찾아라)-->
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 
@@ -24,9 +24,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<!-- basepackage하위의 클래스를 대상으로 annotation 활성화 : @Component @Autowired -->
+	<!-- basepackage하위의 클래스를 대상으로 annotation 활성화 : @Component @Autowired 처리 -->
 	<context:component-scan base-package="com.kh.spring" />
-	
-	
-	
+
 </beans:beans>
