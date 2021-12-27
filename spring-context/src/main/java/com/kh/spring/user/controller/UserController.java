@@ -1,6 +1,6 @@
-package com.kh.spring.tv.user.controller;
+package com.kh.spring.user.controller;
 
-import com.kh.spring.tv.user.model.service.UserService;
+import com.kh.spring.user.model.service.UserService;
 
 public class UserController {
 	

@@ -1,4 +1,4 @@
-package com.kh.spring.tv.user.model.service;
+package com.kh.spring.user.model.service;
 
 public class UserServiceImpl implements UserService {
 

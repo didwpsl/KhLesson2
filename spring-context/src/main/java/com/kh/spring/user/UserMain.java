@@ -1,10 +1,10 @@
-package com.kh.spring.tv.user;
+package com.kh.spring.user;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.kh.spring.tv.user.config.UserConfig;
-import com.kh.spring.tv.user.controller.UserController;
+import com.kh.spring.user.config.UserConfig;
+import com.kh.spring.user.controller.UserController;
 
 public class UserMain {
 	public static void main(String[] args) {

@@ -1,11 +1,11 @@
-package com.kh.spring.tv.user.config;
+package com.kh.spring.user.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.kh.spring.tv.user.controller.UserController;
-import com.kh.spring.tv.user.model.service.UserService;
-import com.kh.spring.tv.user.model.service.UserServiceImpl;
+import com.kh.spring.user.controller.UserController;
+import com.kh.spring.user.model.service.UserService;
+import com.kh.spring.user.model.service.UserServiceImpl;
 
 /*
  * 빈 등록 설정 클래스 
