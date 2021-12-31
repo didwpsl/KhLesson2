@@ -1,6 +1,7 @@
 package com.kh.spring.demo.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +9,9 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.spring.demo.model.vo.Dev;
 
-@Repository //dao
+@Repository
 public class DemoDaoImpl implements DemoDao {
-	
+
 	@Autowired
 	private SqlSessionTemplate session;
 
@@ -23,4 +24,14 @@ public class DemoDaoImpl implements DemoDao {
 	public List<Dev> selectDevList() {
 		return session.selectList("demo.selectDevList");
 	}
+
+	@Override
+	public List<Map<String, Object>> selectDevMapList() {
+		return session.selectList("demo.selectDevMapList");
+	}
+	
+	
+	
+	
+	
 }

@@ -41,6 +41,14 @@
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
 		</dependency>	
+		<!-- #10. aop처리용 aspectjweaver 의존 추가 -->
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>1.9.6</version>
+		    <scope>runtime</scope>
+		</dependency>
+				
 		
 		<!-- Logging -->
 		<dependency>
@@ -82,9 +90,10 @@
 					<artifactId>jmxri</artifactId>
 				</exclusion>
 			</exclusions>
-			<scope>runtime</scope>
+			<!-- <scope>runtime</scope> -->
 		</dependency>
-
+		<!-- scope태그의 기본값은 compile, runtime, provided -->
+		
 		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
@@ -173,6 +182,15 @@
 			<artifactId>spring-security-config</artifactId>
 	        <version>${org.springframework.security-version}</version>		
 		</dependency>
+		
+		
+		<!-- #9. log4jdbc-remix -->
+		<dependency>
+			<groupId>org.lazyluke</groupId>
+			<artifactId>log4jdbc-remix</artifactId>
+			<version>0.2.7</version>
+		</dependency>
+		
 		
 	</dependencies>
     <build>

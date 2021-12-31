@@ -23,16 +23,15 @@
 
 <script>
 $(() => {
-	//페이지 loading이 완료되면 modal창이 나타나야 한다 
+	// 페이지 loading이 완료되면 modal창이 나타나야 한다.
 	$(loginModal)
 		.modal()
-		.on('hide.bs.model', () => {
-			//모달 창이 닫히면 발생하는 이벤트 핸들러 
-			location.href="${pageContext.request.contextPath}";
-		})
-})
+		.on('hide.bs.modal', () => {
+			// 모달창이 닫히면 발생하는 이벤트 핸들러		
+			location.href = "${pageContext.request.contextPath}";
+		});
+});
 </script>
-
 </head>
 <body>
 
@@ -54,9 +53,12 @@ $(() => {
 					action="${pageContext.request.contextPath}/member/memberLogin.do"
 					method="post">
 					<div class="modal-body">
-						<input type="text" class="form-control" name="id"
-							placeholder="아이디" required> <br /> <input
-							type="password" class="form-control" name="password"
+						<input 
+							type="text" class="form-control" name="id" value="honggd"
+							placeholder="아이디" required> 
+						<br /> 
+						<input
+							type="password" class="form-control" name="password" value="1234"
 							placeholder="비밀번호" required>
 					</div>
 					<div class="modal-footer">
@@ -68,7 +70,5 @@ $(() => {
 		</div>
 	</div>
 	<!-- Modal 끝-->
-
-
 </body>
 </html>
